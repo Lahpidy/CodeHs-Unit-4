@@ -1,0 +1,44 @@
+public class SummableTester extends ConsoleProgram
+{
+    public void run()
+    {
+        // Start here!
+        City covina = new City("Covina", 48095);
+        City westCovina = new City("West Covina", 106589);
+        
+        int totalPopulation = covina.add(westCovina);
+        System.out.println("Total population of Covina and West Covina: " + totalPopulation);
+    }
+}
+___________________________________________________________________________________________________
+public class City
+{
+    private int population;
+    private String name;
+
+    public City(String name, int population)
+    {
+        this.name = name;
+        this.population = population;
+    }
+    
+    public String getName()
+    {
+        return this.name;
+    }
+    public int getValue()
+    {
+        return this.population;
+    }
+    public int add(City other)
+    {
+        return getValue() + other.getValue();
+    }
+}
+___________________________________________________________________________________________________
+public interface Summable
+{
+    public int add(Summable other);
+    
+    public int getValue();
+}
