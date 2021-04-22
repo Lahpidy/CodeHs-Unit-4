@@ -1,0 +1,14 @@
+public class Messages extends ConsoleProgram
+{
+    public void run()
+    {
+        // Your code here.
+        // Create the two TextMessage objects and print them out.
+        TextMessage text1 = new TextMessage("Alex", "Liza", "Hey! how are you?");
+        TextMessage text2 = new TextMessage("Liza", "Alex", "I'm good.");
+        
+        System.out.println(text1);
+        System.out.println(text2);
+    }
+}
+
