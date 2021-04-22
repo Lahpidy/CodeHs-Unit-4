@@ -1,0 +1,32 @@
+public class PizzaTester extends ConsoleProgram
+{
+    public void run()
+    {
+        // Test your Pizza class here.
+        Pizza test1 = new Pizza("hawaiian", "pineapple and ham", 9);
+        Pizza test2 = new Pizza("deep dish", "pepperoni and cheese", 12);
+        Pizza test3 = new Pizza("meat lovers", "pepperoni, sausage, and bacon", 15);
+        System.out.println(test1);
+        System.out.println(test2);
+        System.out.println(test3);
+    }
+}
+_____________________________________________________________________________
+public class Pizza
+{
+    private String theType;
+    private String theToppings;
+    private int theSize;
+    
+    public Pizza(String itheType, String itheToppings, int itheSize)
+    {
+        theType = itheType;
+        theToppings = itheToppings;
+        theSize = itheSize;
+    }
+    
+    public String toString()
+    {
+        return theSize + " inch " + theType + " pizza with " + theToppings + " toppings";
+    }
+}
