@@ -1,0 +1,17 @@
+public class HowFarAway extends ConsoleProgram
+{
+    public void run()
+    {
+        // your code here.
+        double startingLat = readDouble("Enter the latitude of the starting location: ");
+        double startingLong = readDouble("Enter the longitude of the starting location: ");
+        double endingLat = readDouble("Enter the latitude of the ending location: ");
+        double endingLong = readDouble("Enter the longitude of the ending location: ");
+        
+        GeoLocation start = new GeoLocation(startingLat, startingLong);
+        GeoLocation end = new GeoLocation(endingLat, endingLong);
+        
+        double distance = start.distanceFrom(end);
+        System.out.println("The distance is " + distance + " miles.");
+    }
+}
