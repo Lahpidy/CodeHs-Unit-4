@@ -1,0 +1,86 @@
+public class FractionTester extends ConsoleProgram
+{
+    public void run()
+    {
+        Fraction first = new Fraction(1, 2);
+        Fraction second = new Fraction(1,3);
+        System.out.println();
+        
+        System.out.println("BEFORE: ");
+        System.out.println("first: " + first);
+        System.out.println("second: " + second);
+        
+        first.add(second);
+        
+        System.out.println("AFTER: ");
+        
+        System.out.println("first: " + first);
+        System.out.println("second: " + second);
+    }
+}
+__________________________________________________
+public class Fraction
+{
+    // Create your instance variables and constructor here
+    private int numerator;
+    private int denominator;
+    
+
+    public Fraction(int num, int denom)
+    {
+        numerator = num;
+		denominator = denom;
+    }
+    
+    public int getNumerator() 
+    {
+        // IMPLEMENT THIS METHOD
+       return numerator;
+    }
+    
+    public int getDenominator() 
+    {
+        // IMPLEMENT THIS METHOD
+        return denominator;
+    }
+    
+    public void setNumerator(int x) 
+    {
+        // IMPLEMENT THIS METHOD
+        numerator = x;
+    }
+    
+    
+    public void setDenominator(int x) 
+    {
+        // IMPLEMENT THIS METHOD
+        denominator = x;
+    }
+    
+    public void add(Fraction other) 
+    {
+        // IMPLEMENT THIS METHOD
+        numerator = numerator * other.getDenominator() + denominator * other.getNumerator();
+        denominator = denominator * other.getDenominator();
+    }
+    
+    public void subtract(Fraction other) 
+    {
+        // IMPLEMENT THIS METHOD
+        numerator = numerator * other.getDenominator() - denominator * other.getNumerator();
+        denominator = denominator * other.getDenominator();
+    }
+    
+    public void multiply(Fraction other) 
+    {
+        // IMPLEMENT THIS METHOD
+        numerator = numerator * other.getNumerator();
+        denominator = denominator * other.getDenominator();
+    }
+    
+    public String toString()
+    {
+        // IMPLEMENT THIS METHOD
+        return numerator + "/" + denominator;
+    }
+}
