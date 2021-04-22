@@ -1,0 +1,25 @@
+public class DogTester extends ConsoleProgram
+{
+    public void run()
+    {
+        Dog golden = new Dog("Golden Retriever", "Sammy");
+        System.out.println(golden);
+    }
+}
+-------------------------------------------------------
+public class Dog 
+{
+    private String breed;
+    private String name;
+    
+    public Dog(String theBreed, String theName)
+    {
+        breed = theBreed;
+        name = theName;
+    }
+    
+    public String toString()
+    {
+        return name + " is a " + breed;
+    }
+}
