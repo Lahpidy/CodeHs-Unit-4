@@ -1,0 +1,42 @@
+public class TriangleTester extends ConsoleProgram
+{
+    public void run()
+    {
+        // Create and test out Triangle objects here!
+        Triangle tri1 = new Triangle(3,9);
+        System.out.println(tri1);
+        System.out.println("Area: " + tri1.getArea());
+    }
+}
+_____________________________________________________
+public class Triangle
+{
+    private int height;
+    private int width;
+    
+    public Triangle(int triWidth, int triHeight)
+    {
+        height = triHeight;
+        width = triWidth;
+    }
+    
+    public int getWidth()
+    {
+        return width;
+    }
+    public int getHeight()
+    {
+        return height;
+    }
+    
+    public double getArea()
+    {
+        double area = (double)width * (double)height /2;
+        return area;
+    }
+    
+    public String toString()
+    {
+        return "Triangle with width: " + width + "and height: " + height;
+    }
+}
