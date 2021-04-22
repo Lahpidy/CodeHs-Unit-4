@@ -1,0 +1,83 @@
+public class ClothingTester extends ConsoleProgram
+{
+    public void run()
+    {
+        // Start here!
+        TShirt tshirt = new TShirt("small", "yellow", "cotton");
+        System.out.println(tshirt.getSize() + " " + tshirt.getColor() + " " + tshirt.getFabric());
+        
+        Sweatshirt sweatshirt = new Sweatshirt("medium", "lilac", true);
+        System.out.println(sweatshirt.getSize() + " " + sweatshirt.getColor() + " " + sweatshirt.hasHood());
+        
+        Jeans jeans = new Jeans("large");
+        System.out.println(jeans.getSize() + " " + jeans.getColor());
+    }
+}
+______________________________________________________________________________________________________________________
+
+public class TShirt extends Clothing
+{
+    private String fabric;
+    
+    public TShirt(String size, String color, String fabric)
+    {
+        super(size, color);
+        this.fabric = fabric;
+        
+    }
+    
+    public String getFabric()
+    {
+        return this.fabric;
+    }
+}
+______________________________________________________________________________________________________________________
+
+public class Sweatshirt extends Clothing
+{
+    private boolean hasHood;
+    
+    public Sweatshirt(String size, String color, boolean hasHood)
+    {
+        super(size, color);
+        this.hasHood = hasHood;
+    }
+    
+    public boolean hasHood()
+    {
+        return this.hasHood;
+    }
+    
+}
+______________________________________________________________________________________________________________________
+
+public class Jeans extends Clothing
+{
+    public Jeans(String size)
+    {
+        super(size, "blue");
+    }
+}
+______________________________________________________________________________________________________________________
+public class Clothing
+{
+    // Your code here
+    private String size;
+    private String color;
+    
+    public Clothing(String size, String color)
+    {
+        this.size = size;
+        this.color = color;
+    }
+    
+    public String getSize()
+    {
+        return this.size;
+    }
+    
+    public String getColor()
+    {
+        return this.color;
+    }
+}
