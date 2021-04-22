@@ -1,0 +1,32 @@
+public class TextMessage
+{
+    private String message;
+    private String sender;
+    private String receiver;
+    
+    public TextMessage(String from, String to, String theMessage)
+    {
+        sender = from;
+        receiver = to;
+        message = theMessage;
+    }
+    
+    public String toString()
+    {
+        return sender + " texted " + receiver + ": " + message;
+    }
+}
+_____________________________________________________________
+public class Messages extends ConsoleProgram
+{
+    public void run()
+    {
+        // Your code here.
+        // Create the two TextMessage objects and print them out.
+        TextMessage text1 = new TextMessage("Bart", "Lisa", "Where are you?");
+        TextMessage text2 = new TextMessage("Lisa", "Bart", "I'm at school!");
+        System.out.println(text1);
+        System.out.println(text2);
+        
+    }
+}
