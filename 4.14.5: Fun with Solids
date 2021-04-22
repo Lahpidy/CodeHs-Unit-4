@@ -1,0 +1,191 @@
+public class SolidTester
+{
+    public static void main(String[] args)
+    {
+        String name;
+        double volume;
+        double surfaceArea;
+
+        Pyramid pyramid = new Pyramid("My pyramid", 1, 3, 5);
+        name = pyramid.getName();
+        volume = round(pyramid.volume(), 2);
+        surfaceArea = round(pyramid.surfaceArea(), 2);
+        System.out.println("Pyramid '" + name + "' has volume: " + volume +
+            " and surface area: " + surfaceArea + ".");
+
+        Sphere sphere = new Sphere("My sphere", 4);
+        name = sphere.getName();
+        volume = round(sphere.volume(), 2);
+        surfaceArea = round(sphere.surfaceArea(), 2);
+        System.out.println("Sphere '" + name + "' has volume: " + volume +
+            " and surface area: " + surfaceArea + ".");
+
+        RectangularPrism rectangularPrism = new RectangularPrism("My rectangular prism",
+            5, 8, 3);
+        name = rectangularPrism.getName();
+        volume = round(rectangularPrism.volume(), 2);
+        surfaceArea = round(rectangularPrism.surfaceArea(), 2);
+        System.out.println("RectangularPrism '" + name + "' has volume: " +
+            volume + " and surface area: " + surfaceArea + ".");
+
+        Cylinder cylinder = new Cylinder("My cylinder", 4, 9);
+        name = cylinder.getName();
+        volume = round(cylinder.volume(), 2);
+        surfaceArea = round(cylinder.surfaceArea(), 2);
+        System.out.println("Cylinder '" + name + "' has volume: " + volume +
+            " and surface area: " + surfaceArea + ".");
+
+        Cube cube = new Cube("My cube", 4);
+        name = cube.getName();
+        volume = round(cube.volume(), 2);
+        surfaceArea = round(cube.surfaceArea(), 2);
+        System.out.println("Cube '" + name + "' has volume: " + volume +
+            " and surface area: " + surfaceArea + ".");
+    }
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
+    }
+}
+__________________________________________________________________________________________________
+
+import java.lang.Math;
+
+public class Sphere extends Solid
+{
+    // Code goes here!
+    private double radius;
+    public Sphere(String thename, int theradius)
+    {
+        super(thename);
+        radius = (double)theradius;
+    }
+    public double volume()
+    {
+        return (4.0/3.0) * Math.PI * Math.pow(radius,3);
+    }
+    public double surfaceArea()
+    {
+        return 4.0 * Math.PI * Math.pow(radius,2);
+    }
+}
+__________________________________________________________________________________________________
+
+public class Cube extends RectangularPrism
+{
+    // Code goes here!
+    public Cube(String thename, int sidelength)
+    {
+        super(thename,sidelength,sidelength,sidelength);
+    }
+}
+__________________________________________________________________________________________________
+
+import java.lang.Math;
+
+public class Pyramid extends Solid
+{
+    // Code goes here!
+    
+    // When testing, values will be passed in this order: length, width, height
+    
+    private double length;
+    private double height;
+    private double width;
+    
+    public Pyramid(String thename, int thelength, int thewidth, int theheight)
+    {
+        super(thename);
+        length = (double)thelength;
+        height = (double)theheight;
+        width = (double)thewidth;
+    }
+    public double volume()
+    {
+        return (length * width * height)/3.0;
+    }
+    public double surfaceArea()
+    {
+        double partone = length * width;
+        double parttwo = length * Math.sqrt(Math.pow(width/2,2) + Math.pow(height,2));
+        double partthree = width * Math.sqrt(Math.pow(length/2,2) + Math.pow(height,2));
+        return partone + parttwo + partthree;
+    }
+}
+__________________________________________________________________________________________________
+
+public class RectangularPrism extends Solid
+{
+    // Code goes here!
+    private double width;
+    private double length;
+    private double height;
+    
+     public RectangularPrism(String thename, int thewidth, int theheight, int thelength)
+     {
+        super(thename);
+        width = (double)thewidth;
+        height = (double)theheight;
+        length = (double)thelength;
+     }
+     
+      public double surfaceArea()
+      {
+         double sa = (2.0*(width * height) + 2.0*(width * length) + 2.0*(length * height));
+         return sa;
+      }
+      public double volume()
+      {
+          return width * height * length;
+      }
+}
+__________________________________________________________________________________________________
+
+public abstract class Solid
+{
+    private String myName;
+
+    public Solid(String name)
+    {
+        myName = name;
+    }
+
+    public String getName()
+    {
+        return myName;
+    }
+
+    public abstract double volume();
+
+    public abstract double surfaceArea();
+}
+__________________________________________________________________________________________________
+
+import java.lang.Math;
+
+public class Cylinder extends Solid
+{
+    // Code goes here!
+    private double radius;
+    private double height;
+    
+    public Cylinder(String thename, int theradius, int theheight)
+    {
+        super(thename);
+        radius = (double)theradius;
+        height = (double)theheight;
+    }
+     public double volume()
+     {
+         return Math.PI * Math.pow(radius,2) * height;
+     }
+      public double surfaceArea()
+      {
+          return 2 * (Math.PI * Math.pow(radius,2)) + ((Math.PI * 2 * radius) * height);
+      }
+}
