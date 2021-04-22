@@ -1,0 +1,29 @@
+public class FractionTester extends ConsoleProgram
+{
+    public void run()
+    {
+        // Test out your Fraction class here!
+        int numeratorFirst = readInt("What is the numerator of the first fraction?");
+        int denominatorFirst = readInt("What is the denominator of the first fraction?");
+        int numeratorSecond = readInt("What is the numerator of the second fraction?");
+        int denominatorSecond = readInt("What is the denominator of the second fraction?");
+        
+    }
+}
+___________________________________________________________________________________________
+public class Fraction
+{
+    private int numerator;
+    private int denominator;
+    
+    public Fraction(int inumerator, int idenominator)
+    {
+        numerator = inumerator;
+        denominator = idenominator;
+    }
+    
+    public String toString()
+    {
+        return numerator + "/" + denominator;
+    }
+}
