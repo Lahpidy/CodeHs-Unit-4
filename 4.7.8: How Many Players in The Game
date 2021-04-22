@@ -1,0 +1,43 @@
+public class PlayerTester extends ConsoleProgram
+{
+    public void run()
+    {
+        // Test out the Player class here!
+        Player one = new Player();
+        Player two = new Player();
+        Player three = new Player();
+        Player four = new Player();
+        Player five = new Player();
+        
+        System.out.println(Player.gameFull());
+    }
+}
+______________________________________________
+public class Player 
+{
+    // Static Variables
+    // ...
+    public static int totalPlayers = 0;
+    public static int maxPlayers = 10;
+    
+    // Public Methods
+    public Player() 
+    {
+        // Some code here...
+        totalPlayers++; 
+    }
+    
+    // Static Methods 
+    // ...
+    public static boolean gameFull()
+    {
+        if(totalPlayers >= 10)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
