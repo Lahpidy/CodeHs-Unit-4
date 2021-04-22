@@ -1,0 +1,182 @@
+public class ShapesTester extends ConsoleProgram
+{
+    public void run()
+    {
+        Shape rectangle = new Rectangle(10, 20);
+        System.out.println("Name: " + rectangle.getName());
+        System.out.println("Area: " + rectangle.getArea());
+        System.out.println("Perimeter: " + rectangle.getPerimeter());
+        System.out.println();
+
+        Shape r2 = new Rectangle(5, 10);
+        System.out.println("Name: " + r2.getName());
+        System.out.println("Area: " + r2.getArea());
+        System.out.println("Perimeter: " + r2.getPerimeter());
+        System.out.println();
+
+        Shape circle = new Circle(10);
+        System.out.println("Name: " + circle.getName());
+        System.out.println("Area: " + circle.getArea());
+        System.out.println("Perimeter: " + circle.getPerimeter());
+        System.out.println();
+
+        Shape square = new Square(6);
+        System.out.println("Name: " + square.getName());
+        System.out.println("Area: " + square.getArea());
+        System.out.println("Perimeter: " + square.getPerimeter());
+        System.out.println();
+
+        Shape pentagon = new Pentagon(5);
+        System.out.println("Name: " + pentagon.getName());
+        System.out.println("Area: " + pentagon.getArea());
+        System.out.println("Perimeter: " + pentagon.getPerimeter());
+        System.out.println();
+
+    }
+}
+________________________________________________________________________
+public class Circle extends Shape
+{
+    private double radius;
+
+    public Circle(String name, double radius)
+    {
+        super(name);
+        this.radius = radius;
+    }
+     public double getPerimeter()
+    {
+        return 2.0 * Math.PI * radius;
+    }
+
+    public Circle(double radius)
+    {
+        this("Circle", radius);
+    }
+
+    public double getRadius()
+    {
+        return radius;
+    }
+
+    public double getArea()
+    {
+        return Math.PI * Math.pow(radius, 2);
+    }
+}
+_______________________________________________________________________________
+public class Rectangle extends Shape
+{
+    private double width;
+    private double height;
+    
+    public Rectangle(String name, double width, double height)
+    {
+        super(name);
+        this.width = width;
+        this.height = height;
+    }
+    
+    public Rectangle(double width, double height)
+    {
+        this("Rectangle", width, height);
+    }
+    
+    public double getArea()
+    {
+        return width * height;
+    }
+     public double getPerimeter()
+    {
+        return width + width + height + height;
+    }
+    
+    public double getHeight()
+    {
+        return height;
+    }
+    
+    public double getWidth()
+    {
+        return width;
+    }
+    
+    public String toString()
+    {
+        return "Rectangle with width: " + width + " and height: " + height;
+    }
+}
+____________________________________________________________________________
+public class Square extends Rectangle
+{
+    private double squareSide;
+    
+    public Square(double sideLength)
+    {
+        super("Square", sideLength, sideLength);
+        squareSide = sideLength;
+    }
+    
+    public double getSideLength()
+    {
+        return super.getHeight();
+    }
+     public double getPerimeter()
+    {
+        return squareSide * 4.0;
+    }
+}
+____________________________________________________________________________
+public class Pentagon extends Shape
+{
+    private double sideLength;
+
+    public Pentagon(String name, double sideLength)
+    {
+        super(name);
+        this.sideLength = sideLength;
+    }
+     public double getPerimeter()
+    {
+        return sideLength * 5.0;
+    }
+
+    public Pentagon(double sideLength)
+    {
+        this("Pentagon", sideLength);
+    }
+
+    public double getSideLength()
+    {
+        return sideLength;
+    }
+
+    public double getArea()
+    {
+        return 1.0 / 4.0 * Math.sqrt(5.0 * (5.0 + 2.0 * Math.sqrt(5.0)))
+               * Math.pow(sideLength, 2);
+    }
+}
+_______________________________________________________________________________
+public abstract class Shape
+{
+    private String name;
+    
+    public Shape(String name)
+    {
+        this.name = name;
+    }
+    
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    
+    public String getName()
+    {
+        return this.name;
+    }
+    
+    public abstract double getArea();
+    public abstract double getPerimeter();
+}
